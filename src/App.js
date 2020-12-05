@@ -1,10 +1,11 @@
-import './App.css';
 import { useState, useEffect } from "react";
-import BookCard from "./components/BookCard";
-import Header from "./components/Header";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
+
+import Header from "./components/Header";
+
 import API from "./util/API";
 
+import "./App.css";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -55,14 +56,14 @@ function App() {
                 />
               </div>
             </div>
-            {searchResults.map(({ id, bookId, ...bookInfo }, i) => (
+            {/* {searchResults.map(({ id, bookId, ...bookInfo }, i) => (
               <BookCard
                 key={i}
                 id={id ?? bookId}
                 {...bookInfo}
                 saved={Boolean(id)}
               />
-            ))}
+            ))} */}
           </Route>
           <Route path="/saved" exact>
             Saved
