@@ -1,10 +1,12 @@
-import './App.css';
 import { useState, useEffect } from "react";
-import BookCard from "./components/BookCard";
-import Header from "./components/Header";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
+
+import Header from "./components/Header";
+import BookCard from "./components/BookCard";
+
 import API from "./util/API";
 
+import "./App.css";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");

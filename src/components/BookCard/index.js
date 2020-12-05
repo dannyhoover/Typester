@@ -6,7 +6,6 @@ const BookCard = ({ id, title, description, authors, image, link, saved }) => {
           <h2>{title}</h2>
         </a>
         <span>{authors.join()}</span>
-        <span>{link}</span>
         <p>{description ?? ""}</p>
         <img src={image} alt={title + " Cover Image"} />
       </div>
