@@ -11,6 +11,7 @@ import "./App.css";
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (!searchQuery) return;
@@ -36,14 +37,6 @@ function App() {
   console.log(searchResults);
   return (
     <>
-      <Header>
-        <NavLink className="nav-link" to="/" exact>
-          Search
-        </NavLink>
-        <NavLink className="nav-link" to="/saved" exact>
-          Saved
-        </NavLink>
-      </Header>
       <div className="container mt-5">
         <Switch>
           <Route path="/" exact>
@@ -66,8 +59,8 @@ function App() {
               />
             ))}
           </Route>
-          <Route path="/saved" exact>
-            Saved
+          <Route exactpath="/login">
+            <Login />
           </Route>
           <Route path="*">
             <Redirect to="/" />
