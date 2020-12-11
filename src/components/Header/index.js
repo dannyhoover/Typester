@@ -4,7 +4,7 @@ const Header = ({ children }) => (
   <header>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
-        Google Books Search
+        Typster
       </Link>
 
       <button

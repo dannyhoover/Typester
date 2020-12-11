@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+Button {
+  border: 1px solid black;
+}
+
+label {
+  margin: 5%;
+  width: 200%;
+}
+
+input {
+  margin-left: 2%;
+}
+
+#email {
+  margin-left: 4.6%;
+}
+
+#signupLink {
+  margin-right: 25%;
+  font-size: 80%;
+}
