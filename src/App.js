@@ -54,56 +54,44 @@ function App() {
                     Login/Signup
                 </Button>
 
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Login</Modal.Title>
-                    </Modal.Header>
-                    <form>
-                        <label>
-                            Email:
-                            <input type="text" name="name" id="email"/>
-                        </label>
-                        <label>
-                            Password:
-                            <input type="text" name="name"/>
-                        </label>
-                    </form>
-                    <Modal.Footer>
-                        <a href="#" id="signupLink">
-                            Not a member yet? Click here to get started.
-                        </a>
-                        <Button variant="light" onClick={handleClose}>
-                            Login
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </Header>
-            <div className="container mt-5">
-                <Switch>
-                    <Route path="/" exact>
-                        <div className="card mx-5">
-                            <div className="card-body">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                        {searchResults.map(({id, bookId, ...bookInfo}, i) => (
-                            <BookCard
-                                key={i}
-                                id={id ?? bookId}
-                                {...bookInfo}
-                                saved={Boolean(id)}
-                            />
-                        ))}
-                    </Route>
-                    <Route path="*">
-                        <Redirect to="/"/>
-                    </Route>
-                </Switch>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+          </Modal.Header>
+          <form>
+            <label>
+              Email:
+              <input type="text" name="email" id="email" />
+            </label>
+            <label>
+              Password:
+              <input type="text" name="password" />
+            </label>
+          </form>
+          <Modal.Footer>
+            <a href="#" id="signupLink">
+              Not a member yet? Click here to get started.
+            </a>
+            <Button variant="light" onClick={handleClose}>
+              Login
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </Header>
+      <div className="container mt-5">
+        <Switch>
+          <Route path="/" exact>
+            <div className="card mx-5">
+              <div className="card-body">
+                <input
+                  type="text"
+                  className="form-control"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
             </div>
         </>
     );
