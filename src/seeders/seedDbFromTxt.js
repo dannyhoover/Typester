@@ -20,7 +20,7 @@ const rl = readline.createInterface(instream, outstream);
 
 let textBlob = "";
 
-rl.on('line', function(line) {
+rl.on('line', function (line) {
 
     textBlob += line;
 
@@ -34,7 +34,7 @@ rl.on('line', function(line) {
     }
 });
 
-rl.on('close', function() {
+rl.on('close', function () {
     console.log("Done!");
 });
 

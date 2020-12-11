@@ -1,3 +1,3 @@
 <Route exact path="/login">
-  <Login />
+    <Login/>
 </Route>;
