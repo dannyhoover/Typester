@@ -2,11 +2,11 @@ import React from "react";
 
 function Chart() {
     return (
-      <div>
-        
-      </div>
+        <div>
+
+        </div>
     );
-  };
-  
-  export default Chart;
+};
+
+export default Chart;
   

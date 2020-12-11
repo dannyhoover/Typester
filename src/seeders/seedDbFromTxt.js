@@ -25,19 +25,22 @@ const rl = readline.createInterface(instream, outstream);
 
 let textBlob = "";
 
-rl.on("line", function (line) {
-  textBlob += line;
 
-  if (textBlob.split(" ").length > minWordLength) {
-    Excerpt.create({
-      excerpt: textBlob,
-      wordLen: textBlob.split(" ").length,
-      len: textBlob.length,
-    });
-    textBlob = "";
-  }
+rl.on('line', function (line) {
+
+    textBlob += line;
+
+    if (textBlob.split(" ").length > minWordLength) {
+        Excerpt.create({
+            excerpt: textBlob,
+            wordLen: textBlob.split(" ").length,
+            len: textBlob.length
+        });
+        textBlob = "";
+    }
 });
 
-rl.on("close", function () {
-  console.log("Done!");
+rl.on('close', function () {
+    console.log("Done!");
+
 });
