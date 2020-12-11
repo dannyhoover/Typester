@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Redirect, Route, Switch} from "react-router-dom";
 // import for Login
 import Modal from "react-bootstrap/Modal";
-
+import axios from "axios";
 import Header from "./components/Header";
 import BookCard from "./components/BookCard";
 
@@ -20,10 +20,19 @@ import {Button} from "react-bootstrap";
 function App() {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post("http://localhost:3001/user/register/", {email: email, password: password}).then(response => {
+            console.log(response.data);
+        })
+
+    }
 
     useEffect(() => {
         if (!searchQuery) return;
@@ -54,44 +63,60 @@ function App() {
                     Login or Signup
                 </Button>
 
-
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
-          </Modal.Header>
-          <form>
-            <label>
-              Email:
-              <input type="text" name="email" id="email" />
-            </label>
-            <label>
-              Password:
-              <input type="text" name="password" />
-            </label>
-          </form>
-          <Modal.Footer>
-            <a href="#" id="signupLink">
-              Not a member yet? Click here to get started.
-            </a>
-            <Button variant="light" onClick={handleClose}>
-              Login
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </Header>
-      <div className="container mt-5">
-        <Switch>
-          <Route path="/" exact>
-            <div className="card mx-5">
-              <div className="card-body">
-                <input
-                  type="text"
-                  className="form-control"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Login</Modal.Title>
+                    </Modal.Header>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Email:
+                            <input type="text" name="email" id="email"
+                                   value={email}
+                                   onChange={(e) => setEmail(e.target.value)}/>
+                        </label>
+                        <label>
+                            Password:
+                            <input type="text" name="password"
+                                   value={password}
+                                   onChange={(e) => setPassword(e.target.value)}/>
+                        </label>
+                    </form>
+                    <Modal.Footer>
+                        <a href="#" id="signupLink">
+                            Not a member yet? Click here to get started.
+                        </a>
+                        <Button variant="light" onClick={handleClose}>
+                            Login
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </Header>
+            <div className="container mt-5">
+                <Switch>
+                    <Route path="/" exact>
+                        <div className="card mx-5">
+                            <div className="card-body">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        {searchResults.map(({id, bookId, ...bookInfo}, i) => (
+                            <BookCard
+                                key={i}
+                                id={id ?? bookId}
+                                {...bookInfo}
+                                saved={Boolean(id)}
+                            />
+                        ))}
+                    </Route>
+                    <Route path="*">
+                        <Redirect to="/"/>
+                    </Route>
+                </Switch>
             </div>
         </>
     );
