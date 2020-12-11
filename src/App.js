@@ -51,24 +51,30 @@ function App() {
   return (
     <>
       <Header>
-        <NavLink className="nav-link" to="/" exact>
-          Search
-        </NavLink>
-        <Button variant="primary" onClick={handleShow}>
-          Login
+        <Button variant="light" onClick={handleShow} className="button">
+          Login/Signup
         </Button>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Login</Modal.Title>
           </Modal.Header>
-          <Form></Form>
+          <form>
+            <label>
+              Email:
+              <input type="text" name="name" id="email" />
+            </label>
+            <label>
+              Password:
+              <input type="text" name="name" />
+            </label>
+          </form>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
+            <a href="#" id="signupLink">
+              Not a member yet? Click here to get started.
+            </a>
+            <Button variant="light" onClick={handleClose}>
+              Login
             </Button>
           </Modal.Footer>
         </Modal>
