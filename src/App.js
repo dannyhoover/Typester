@@ -62,11 +62,11 @@ function App() {
           <form>
             <label>
               Email:
-              <input type="text" name="name" id="email" />
+              <input type="text" name="email" id="email" />
             </label>
             <label>
               Password:
-              <input type="text" name="name" />
+              <input type="text" name="password" />
             </label>
           </form>
           <Modal.Footer>
