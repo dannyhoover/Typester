@@ -24,6 +24,9 @@ router.post("/user/register/", (req, res) => {
         User.create({
             email: req.body.email,
             password: hash
+        }).then(() => {
+            const message = `Successfully Created user: ${req.body.email}`;
+            res.json(message);
         });
     });
 });
