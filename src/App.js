@@ -51,7 +51,7 @@ function App() {
         <>
             <Header>
                 <Button variant="light" onClick={handleShow} className="button">
-                    Login/Signup
+                    Login or Signup
                 </Button>
 
                 <Modal show={show} onHide={handleClose}>
