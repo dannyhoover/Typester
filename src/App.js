@@ -3,6 +3,7 @@ import { Switch, Route, Redirect, NavLink } from "react-router-dom";
 // import for Login
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import Chart from "./components/Chart"
 
 import Header from "./components/Header";
 import BookCard from "./components/BookCard";
@@ -21,10 +22,38 @@ import { Button } from "react-bootstrap";
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
+  
   const [show, setShow] = useState(false);
+  const [data, setData] = useState({
+    chartData:{
+    }
+  });
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    getChartData()
+  }, [])
+  
+
+
+  function getChartData(){
+    this.setData({
+      chartData:{
+        
+      labels: [],
+      datasets: [
+        {
+          label:"Words per Minute",
+          data:[
+            23,24,25
+          ],
+          backgroundColor:[red],
+        }
+      ]
+      }
+    })
+  }
 
   useEffect(() => {
     if (!searchQuery) return;
