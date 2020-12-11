@@ -38,7 +38,7 @@ function App() {
 
 
   function getChartData(){
-    this.setData({
+    setData({
       chartData:{
         
       labels: [],
@@ -48,7 +48,7 @@ function App() {
           data:[
             23,24,25
           ],
-          backgroundColor:[red],
+          backgroundColor: "rgba(255, 0, 0, 0.2)"
         }
       ]
       }
