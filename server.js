@@ -7,7 +7,7 @@ const passport = require('passport'), LocalStrategy = require('passport-local').
 const PORT = process.env.PORT || 3001;
 const bcrypt = require("bcrypt");
 const User = require("./src/models/User");
-
+const apiRouter = require("./routes/api");
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/typester", {
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 app.use(serveStatic("Develop/public"));
 
-app.use(require("./Develop/routes"));
+app.use("/f", apiRouter);
 
 passport.use(new LocalStrategy(
     function (email, password, done) {
