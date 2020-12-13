@@ -1,3 +1,3 @@
 module.exports = {
-  Typester: require("./Typester"),
+    User: require("./User"),
 };
