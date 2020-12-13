@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {Redirect, Route, Switch} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 // import for Login
 import Modal from "react-bootstrap/Modal";
 
@@ -9,7 +9,7 @@ import BookCard from "./components/BookCard";
 import API from "./util/API";
 
 import "./App.css";
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 // function LoginModalState() {
 //   const tempState;
@@ -18,43 +18,41 @@ import {Button} from "react-bootstrap";
 // }
 
 function App() {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    useEffect(() => {
-        if (!searchQuery) return;
-        const handle = setTimeout(async () => {
-            const res = await API.Book.search(searchQuery);
-            setSearchResults(() =>
-                res.data.items.map(
-                    ({
-                         volumeInfo: {
-                             title,
-                             description,
-                             authors,
-                             imageLinks: {thumbnail: image},
-                             infoLink: link,
-                         },
-                         id: bookId,
-                     }) => ({title, description, authors, image, link, bookId})
-                )
-            );
-        }, 500);
-        return () => clearTimeout(handle);
-    }, [searchQuery]);
-    console.log(searchResults);
-    return (
-        <>
-            <Header>
-                <Button variant="light" onClick={handleShow} className="button">
-                    Login or Signup
-                </Button>
-
-
+  useEffect(() => {
+    if (!searchQuery) return;
+    const handle = setTimeout(async () => {
+      const res = await API.Book.search(searchQuery);
+      setSearchResults(() =>
+        res.data.items.map(
+          ({
+            volumeInfo: {
+              title,
+              description,
+              authors,
+              imageLinks: { thumbnail: image },
+              infoLink: link,
+            },
+            id: bookId,
+          }) => ({ title, description, authors, image, link, bookId })
+        )
+      );
+    }, 500);
+    return () => clearTimeout(handle);
+  }, [searchQuery]);
+  console.log(searchResults);
+  return (
+    <>
+      <Header>
+        <Button variant="light" onClick={handleShow} className="button">
+          Login or Signup
+        </Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
@@ -91,10 +89,23 @@ function App() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-
             </div>
-        </>
-    );
+            {searchResults.map(({ id, bookId, ...bookInfo }, i) => (
+              <BookCard
+                key={i}
+                id={id ?? bookId}
+                {...bookInfo}
+                saved={Boolean(id)}
+              />
+            ))}
+          </Route>
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
+        </Switch>
+      </div>
+    </>
+  );
 }
 
 export default App;
