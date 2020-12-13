@@ -3,10 +3,12 @@ import {Line} from 'react-chartjs-2';
 
 
 function Chart(props) {
-    return (
+  console.log(props.data.chartData);
+  return (
       <div className="chart">
+        {props.data.chartData!=undefined?(
         <Line
-          data={props.data.chartData.data}
+          data={props.data.chartData}
           width={100}
           height={50}
           options={{
@@ -15,9 +17,10 @@ function Chart(props) {
               text: "Words per Minute History",
               fontSize: 25
             },
-            maintainAspectRatio: false
+            maintainAspectRatio: true
           }}
         />
+        ):(<div>No results to display</div>)}
       </div>
     );
   };

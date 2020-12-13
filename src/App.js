@@ -24,38 +24,30 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   
   const [show, setShow] = useState(false);
-  const [data, setData] = useState({
-    chartData:{
-    }
-  });
+  const [data, setData] = useState({});
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  useEffect(() => {
-    getChartData()
-  }, [])
   
-
-
-  function getChartData(){
+  function setChart() {
     setData({
       chartData:{
-        
-      labels: [],
-      datasets: [
-        {
-          label:"Words per Minute",
-          data:[
-            23,24,25
-          ],
-          backgroundColor: "rgba(255, 0, 0, 0.2)"
-        }
-      ]
+        labels: ["point 1", "point 2", "point 3", "point 4", "point 5"],
+        datasets: [
+          {
+            label: "Words per Minute", 
+            data:[
+              23,24,25,50,45
+            ],
+            backgroundColor: "rgba(255, 0, 0, 0.2)"
+          }
+        ]
       }
     })
   }
 
   useEffect(() => {
+    setChart();
+    console.log("test2")
     if (!searchQuery) return;
     const handle = setTimeout(async () => {
       const res = await API.Book.search(searchQuery);
@@ -76,7 +68,8 @@ function App() {
     }, 500);
     return () => clearTimeout(handle);
   }, [searchQuery]);
-  console.log(searchResults);
+  // console.log(searchResults);
+  console.log(data);
   return (
     <>
       <Header>
@@ -134,6 +127,7 @@ function App() {
             <Redirect to="/" />
           </Route>
         </Switch>
+        <Chart data={data}/>
       </div>
     </>
   );
