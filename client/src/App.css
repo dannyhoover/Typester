@@ -58,3 +58,52 @@ input {
     margin-right: 25%;
     font-size: 80%;
 }
+
+.bordered {
+    margin-bottom: 10px;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.heading {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.display-data {
+    border: 1px solid red;
+    margin: 3px;
+    padding: 5px;
+    display:inline-block;
+    width: 24%;
+}
+
+.wpm {
+    margin-left: 10px;
+}
+
+.accuracy {
+    margin-right: 10px;
+}
+
+.quote {
+    font-size: 25px;
+}
+
+.snippet {
+    border-top: 1px solid red;
+    border-bottom: 1px solid black;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+textarea {
+    align-content: center;
+    width: 99%;
+    border: 1px solid red;
+    margin: 3px;
+    padding: 5px;
+}
