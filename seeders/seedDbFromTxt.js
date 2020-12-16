@@ -25,7 +25,7 @@ const rl = readline.createInterface(instream, outstream);
 
 let textBlob = "";
 let paragraphLineCount = 0
-let minParagraphLineCount = 12
+let minParagraphLineCount = 11
 
 rl.on('line', function (line) {
     textBlob += line;
