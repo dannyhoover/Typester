@@ -83,35 +83,37 @@ until besought by Scrooge to tarry for a moment.`;
   return (
     <>
       <div className="container">
-        <div className="heading">Your name here</div>
-        <div className="header">
-          <div className="wpm">
+        <div className="heading">Simple Speed Typing</div>
+        <div className="header bordered">
+          <div className="wpm display-data">
             <div className="header_text">WPM</div>
             <div className="curr_wpm">{WPM}</div>
           </div>
-          <div className="errors">
+          <div className="errors display-data">
             <div className="header_text">Errors</div>
             <div className="curr_errors">{errors}</div>
           </div>
-          <div className="accuracy">
+          <div className="accuracy display-data">
             <div className="header_text">% Accuracy</div>
             <div className="curr_accuracy">{accuracy}</div>
           </div>
         </div>
         <div className="quote">Click start to begin the test.</div>
-        <button onClick={startClickHandler}>Start</button>
+        <button className="start-btn" onClick={startClickHandler}>Start</button>
         <div className="timer">
           <div className="header_text">Time</div>
           <div className="curr_time">{timer}s</div>
         </div>
-        {isGameStarted ? <p onChange={onChangeHandler}>{textSnippet}</p> : ""}
+        {isGameStarted ? <p className="snippet" onChange={onChangeHandler}>{textSnippet}</p> : ""}
         {isGameStarted ? (
+          <div className="bordered">
           <textarea
             className="input_area"
             placeholder="4 Seconds to get set, then type here"
             value={inputVal}
             onChange={onChangeHandler}
           ></textarea>
+          </div>
         ) : (
           ""
         )}
