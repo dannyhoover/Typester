@@ -5,7 +5,7 @@ const User = require("../src/models/User");
 
 router.post("/user/login/", (req, res, next) => {
     User.findOne({email: req.body.email}, (user, err) => {
-        if (err) console.log(err);
+        if (err) return console.log(err);
         bcrypt.compare(req.body.password, user.password, (result) => {
             if (result) {
                 req.login(user, (err) => {
@@ -20,6 +20,7 @@ router.post("/user/login/", (req, res, next) => {
 });
 
 router.post("/user/register/", (req, res) => {
+    console.log(req.body);
     User.findOne({email: req.body.email}, (user, err) => {
         if (user) {
             console.log("User already exists!");
