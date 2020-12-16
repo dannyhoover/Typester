@@ -1,7 +1,6 @@
 import React from "react";
 import {Line} from 'react-chartjs-2';
 
-<<<<<<< HEAD
 
 function Chart(props) {
   console.log(props.data.chartData);
@@ -23,13 +22,6 @@ function Chart(props) {
         />
         ):(<div>No results to display</div>)}
       </div>
-=======
-function Chart() {
-    return (
-        <div>
-
-        </div>
->>>>>>> 7259ea0e19ac8301fbe7e29e6314099e6ba3d654
     );
 };
 
