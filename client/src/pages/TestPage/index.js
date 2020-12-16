@@ -59,7 +59,7 @@ until besought by Scrooge to tarry for a moment.`;
       return;
     }
     setInputVal(event.target.value);
-    setWPM(inputVal.length / timer / 2);
+    setWPM(inputVal.length / 2.5);
   }
 
   function startClickHandler() {
@@ -99,20 +99,28 @@ until besought by Scrooge to tarry for a moment.`;
           </div>
         </div>
         <div className="quote">Click start to begin the test.</div>
-        <button className="start-btn" onClick={startClickHandler}>Start</button>
+        <button className="start-btn" onClick={startClickHandler}>
+          Start
+        </button>
         <div className="timer">
           <div className="header_text">Time</div>
           <div className="curr_time">{timer}s</div>
         </div>
-        {isGameStarted ? <p className="snippet" onChange={onChangeHandler}>{textSnippet}</p> : ""}
+        {isGameStarted ? (
+          <p className="snippet" onChange={onChangeHandler}>
+            {textSnippet}
+          </p>
+        ) : (
+          ""
+        )}
         {isGameStarted ? (
           <div className="bordered">
-          <textarea
-            className="input_area"
-            placeholder="4 Seconds to get set, then type here"
-            value={inputVal}
-            onChange={onChangeHandler}
-          ></textarea>
+            <textarea
+              className="input_area"
+              placeholder="4 Seconds to get set, then type here"
+              value={inputVal}
+              onChange={onChangeHandler}
+            ></textarea>
           </div>
         ) : (
           ""
