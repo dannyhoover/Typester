@@ -1,3 +1,4 @@
+import { text } from "body-parser";
 import React, { useState, useRef } from "react";
 
 const TestPage = () => {
@@ -7,13 +8,14 @@ const TestPage = () => {
   const [accuracy, setAccuracy] = useState(0);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [inputVal, setInputVal] = useState("");
-  const [textSnippet, setTextSnippet] = useState("");
+  const [textSnippet, setTextSnippet] = useState("Snippet");
 
   console.log("render");
 
   function onChangeHandler(event) {
     console.log(event.target.value);
-    if (event.target.value.includes("b")) {
+    setTextSnippet();
+    if (event.target.value.includes("A")) {
       return;
     }
     setInputVal(event.target.value);
@@ -34,7 +36,6 @@ const TestPage = () => {
   }
   return (
     <>
-      <link rel="stylesheet" href="/index.css"></link>
       <div className="container">
         <div className="heading">Simple Speed Typing</div>
         <div className="header">
@@ -55,9 +56,9 @@ const TestPage = () => {
             <div className="curr_accuracy">{accuracy}</div>
           </div>
         </div>
-
-        <div className="quote">Click on the area below to start the game.</div>
+        <div className="quote">Click start to begin the test.</div>
         <button onClick={startClickHandler}>Start</button>
+        {isGameStarted ? <p onChange={onChangeHandler}>{textSnippet}</p> : ""}
         {isGameStarted ? (
           <textarea
             className="input_area"
@@ -68,7 +69,6 @@ const TestPage = () => {
         ) : (
           ""
         )}
-        <button className="restart_btn">Restart</button>
       </div>
     </>
   );
