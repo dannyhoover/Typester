@@ -14,7 +14,6 @@ const TestPage = () => {
 
   function onChangeHandler(event) {
     console.log(event.target.value);
-    setTextSnippet();
     if (event.target.value.includes("A")) {
       return;
     }
@@ -23,6 +22,7 @@ const TestPage = () => {
 
   function startClickHandler() {
     setIsGameStarted(true);
+    setTextSnippet(textSnippet);
     var intervalID = window.setInterval(myCallback, 1000);
 
     function myCallback() {
