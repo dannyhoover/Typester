@@ -42,3 +42,109 @@
 //     </div>
 //   );
 // }
+
+// ===========================Clyde's======================================
+
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [searchResults, setSearchResults] = useState([]);
+
+//   const [show, setShow] = useState(false);
+//   const [data, setData] = useState({});
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => setShow(true);
+
+//   function setChart() {
+//     setData({
+//       chartData:{
+//         labels: ["point 1", "point 2", "point 3", "point 4", "point 5"],
+//         datasets: [
+//           {
+//             label: "Words per Minute",
+//             data:[
+//               23,24,25,50,45
+//             ],
+//             backgroundColor: "rgba(255, 0, 0, 0.2)"
+//           }
+//         ]
+//       }
+//     })
+//   }
+
+//   useEffect(() => {
+//     setChart();
+//     console.log("test2")
+//     if (!searchQuery) return;
+//     const handle = setTimeout(async () => {
+//       const res = await API.Book.search(searchQuery);
+//       setSearchResults(() =>
+//         res.data.items.map(
+//           ({
+//             volumeInfo: {
+//               title,
+//               description,
+//               authors,
+//               imageLinks: { thumbnail: image },
+//               infoLink: link,
+//             },
+//             id: bookId,
+//           }) => ({ title, description, authors, image, link, bookId })
+//         )
+//       );
+//     }, 500);
+//     return () => clearTimeout(handle);
+//   }, [searchQuery]);
+//   // console.log(searchResults);
+//   console.log(data);
+//   return (
+//     <>
+//       <Header>
+//         <Button variant="light" onClick={handleShow} className="button">
+//           Login/Signup
+//         </Button>
+
+//=================================Github==========================================
+
+// const [searchQuery, setSearchQuery] = useState("");
+// const [searchResults, setSearchResults] = useState([]);
+// const [email, setEmail] = useState("");
+// const [password, setPassword] = useState("");
+// const [show, setShow] = useState(false);
+// const handleClose = () => setShow(false);
+// const handleShow = () => setShow(true);
+
+// const handleSubmit = (event) => {
+//     event.preventDefault();
+//     axios.post("http://localhost:3001/user/register/", {email: email, password: password}).then(response => {
+//         console.log(response.data);
+//     })
+
+// }
+
+// useEffect(() => {
+//     if (!searchQuery) return;
+//     const handle = setTimeout(async () => {
+//         const res = await API.Book.search(searchQuery);
+//         setSearchResults(() =>
+//             res.data.items.map(
+//                 ({
+//                      volumeInfo: {
+//                          title,
+//                          description,
+//                          authors,
+//                          imageLinks: {thumbnail: image},
+//                          infoLink: link,
+//                      },
+//                      id: bookId,
+//                  }) => ({title, description, authors, image, link, bookId})
+//             )
+//         );
+//     }, 500);
+//     return () => clearTimeout(handle);
+// }, [searchQuery]);
+// console.log(searchResults);
+// return (
+//     <>
+//         <Header>
+//             <Button variant="light" onClick={handleShow} className="button">
+//                 Login or Signup
+//             </Button>

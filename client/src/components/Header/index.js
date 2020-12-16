@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import LoginLogoutButton from "../LoginLogoutButton";
 
 const Header = ({children}) => (
     <header>
@@ -29,6 +30,7 @@ const Header = ({children}) => (
                         )
                     )}
                 </ul>
+                <LoginLogoutButton />
             </div>
         </nav>
     </header>

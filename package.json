@@ -3,53 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
-    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.5.3",
-    "chart.js": "^2.9.4",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.4",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-chartjs-2": "^2.11.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "serve-static": "^1.14.1",
-    "web-vitals": "^0.2.4"
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "postinstall": "cd ./client && npm i",
+    "start": "npx if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "npx npm-run-all -p start:dev:*",
+    "start:dev:server": "npx nodemon",
+    "start:dev:client": "cd ./client && npm start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "build:client": "cd ./client && npm run build"
   }
 }
