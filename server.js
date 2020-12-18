@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 3001;
 const bcrypt = require("bcrypt");
-const User = require("./src/models/User");
+const User = require("./models/User");
 const apiRouter = require("./routes/api");
 const app = express();
 
