@@ -83,6 +83,7 @@ until besought by Scrooge to tarry for a moment.`;
   return (
     <>
       <div className="container">
+        <div className="head-gradient"></div>
         <div className="heading">Simple Speed Typing</div>
         <div className="header bordered">
           <div className="wpm display-data">
@@ -126,6 +127,7 @@ until besought by Scrooge to tarry for a moment.`;
           ""
         )}
       </div>
+      <div className="foot-gradient"></div>
     </>
   );
 };
