@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
-const User = require("../src/models/User");
+const User = require("../models/User");
 
 router.post("/user/login/", (req, res, next) => {
     User.findOne({email: req.body.email}, (user, err) => {
@@ -36,7 +36,6 @@ router.post("/user/register/", (req, res) => {
             });
         }
     });
-
 });
 
 module.exports = router;
