@@ -77,6 +77,7 @@ games, wonderful unanimity, won-der-ful happiness!`;
   return (
     <>
       <div className="container">
+        <div className="head-gradient"></div>
         <div className="heading">Simple Speed Typing</div>
         <div className="header bordered">
           <div className="wpm display-data">
@@ -120,6 +121,7 @@ games, wonderful unanimity, won-der-ful happiness!`;
           ""
         )}
       </div>
+      <div className="foot-gradient"></div>
     </>
   );
 };
