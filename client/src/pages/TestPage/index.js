@@ -8,6 +8,8 @@ const TestPage = () => {
   const [accuracy, setAccuracy] = useState(0);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [inputVal, setInputVal] = useState("");
+  const [mistakeCount, setMistakeCount] = useState(0);
+  const [charCount, setCharCount] = useState(0);
 
   const snippet1 = `"What else can I be," returned the uncle, "when I
 live in such a world of fools as this? Merry Christmas!
@@ -34,38 +36,29 @@ came. So did the plump sister when she came. So did
 every one when they came. Wonderful party, wonderful
 games, wonderful unanimity, won-der-ful happiness!`;
 
-  const snippet4 = `He went to church, and walked about the streets, and
-watched the people hurrying to and fro, and patted children
-on the head, and questioned beggars, and looked down into
-the kitchens of houses, and up to the windows, and found
-that everything could yield him pleasure. He had never
-dreamed that any walk--that anything--could give him so
-much happiness. In the afternoon he turned his steps
-towards his nephew's house.`;
+  const snippet4 = `He went to church, and walked about the streets, and watched the people hurrying to and fro, and patted children on the head, and questioned beggars, and looked down into the kitchens of houses, and up to the windows, and found that everything could yield him pleasure. He had never dreamed that any walk--that anything--could give him so much happiness. In the afternoon he turned his steps towards his nephew's house.`;
 
-  const snippet5 = `The Ghost of Christmas Yet To Come conveyed him, as
-before--though at a different time, he thought: indeed, there
-seemed no order in these latter visions, save that they were
-in the Future--into the resorts of business men, but showed
-him not himself. Indeed, the Spirit did not stay for anything,
-but went straight on, as to the end just now desired,
-until besought by Scrooge to tarry for a moment.`;
+  const snippet5 = `The Ghost of Christmas Yet To Come conveyed him, as before--though at a different time, he thought: indeed, there seemed no order in these latter visions, save that they were in the Future--into the resorts of business men, but showed him not himself. Indeed, the Spirit did not stay for anything, but went straight on, as to the end just now desired, until besought by Scrooge to tarry for a moment.`;
 
   const [textSnippet, setTextSnippet] = useState("Snippet");
+  var snipArray = [snippet1, snippet2, snippet3, snippet4, snippet5];
+  var choice = snipArray[Math.floor(Math.random() * snipArray.length)];
 
   function onChangeHandler(event) {
+    console.log(textSnippet);
     console.log(event.target.value);
-    if (event.target.value.includes("A")) {
-      return;
+    if (textSnippet.startsWith(event.target.value)) {
+      setInputVal(event.target.value);
+      setCharCount(charCount + 1);
+    } else {
+      setMistakeCount(mistakeCount + 1);
     }
-    setInputVal(event.target.value);
     setWPM(inputVal.length / 2.5);
+    console.log(mistakeCount);
   }
 
   function startClickHandler() {
     setIsGameStarted(true);
-    var snipArray = [snippet1, snippet2, snippet3, snippet4, snippet5];
-    var choice = snipArray[Math.floor(Math.random() * snipArray.length)];
     console.log(choice);
     setTextSnippet(choice);
     var intervalID = window.setInterval(myCallback, 1000);
@@ -75,6 +68,7 @@ until besought by Scrooge to tarry for a moment.`;
         if (state <= 1) {
           clearInterval(intervalID);
           setIsGameStarted(false);
+          setTimer(34);
         }
         return state - 1;
       });
@@ -91,7 +85,7 @@ until besought by Scrooge to tarry for a moment.`;
           </div>
           <div className="errors display-data">
             <div className="header_text">Errors</div>
-            <div className="curr_errors">{errors}</div>
+            <div className="curr_errors">{mistakeCount}</div>
           </div>
           <div className="accuracy display-data">
             <div className="header_text">% Accuracy</div>
