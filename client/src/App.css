@@ -1,86 +1,86 @@
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 Button {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 label {
-    margin: 5%;
-    width: 200%;
+  margin: 5%;
+  width: 200%;
 }
 
 input {
-    margin-left: 2%;
+  margin-left: 2%;
 }
 
 #email {
-    margin-left: 4.6%;
+  margin-left: 4.6%;
 }
 
 #signupLink {
-    margin-right: 25%;
-    font-size: 80%;
+  margin-right: 25%;
+  font-size: 80%;
 }
 
 .bordered {
-    margin-bottom: 10px;
-    padding: 2px;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 100%;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .heading {
-    font-size: 30px;
-    font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .display-data {
-    border: 1px solid red;
-    margin: 3px;
-    padding: 5px;
-    display:inline-block;
-    width: 32%;
+  /* border: 1px solid red; */
+  margin: 3px;
+  padding: 5px;
+  display: inline-block;
+  width: 32%;
 }
 
-.head-gradient {
+/* .head-gradient {
     width: 100%;
     height: 40px;
     background-image: linear-gradient(to top right, black, white);
@@ -90,32 +90,32 @@ input {
     width: 100%;
     height: 40px;
     background-image: linear-gradient(to bottom right, red, white);
-}
+} */
 
 .wpm {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .accuracy {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .quote {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .snippet {
-    border-top: 1px solid red;
-    border-bottom: 1px solid black;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding: 5px;
+  border-top: 1px solid red;
+  border-bottom: 1px solid black;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 5px;
 }
 
 textarea {
-    align-content: center;
-    width: 99%;
-    border: 1px solid red;
-    margin: 3px;
-    padding: 5px;
+  align-content: center;
+  width: 99%;
+  border: 1px solid red;
+  margin: 3px;
+  padding: 5px;
 }

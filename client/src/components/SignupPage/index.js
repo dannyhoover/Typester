@@ -38,11 +38,11 @@ const LoginLogoutButton = () => {
           onClick={() => setShowModal(true)}
           className="button"
         >
-          Login
+          Signup
         </Button>
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
+            <Modal.Title>Signup</Modal.Title>
           </Modal.Header>
           <form onSubmit={handleSubmit}>
             <label>
@@ -67,7 +67,7 @@ const LoginLogoutButton = () => {
           </form>
           <Modal.Footer>
             <Button variant="light" onClick={() => setShowModal(false)}>
-              Login
+              Signup
             </Button>
           </Modal.Footer>
         </Modal>
