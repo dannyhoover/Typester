@@ -8,6 +8,8 @@ import Header from "./components/Header";
 
 import {IndexPage, TestPage} from "./pages";
 
+import Chart from "./components/Chart"
+
 import API from "./util/API";
 
 import "./App.css";
@@ -24,15 +26,15 @@ function App() {
   return (
     <UserContext.Provider value={{user}}>
       <Header>
-        <NavLink className="nav-link" to="/test" exact>Test</NavLink>
+        <NavLink className="nav-link" to="/chart" exact>Chart</NavLink>
       </Header>
       <div className="container mt-5">
         <Switch>
           <Route path="/" exact>
-            <IndexPage />
-          </Route>
-          <Route path="/test" exact>
             <TestPage />
+          </Route>
+          <Route path="/chart" exact>
+            <IndexPage />
           </Route>
           <Route path="*">
             <Redirect to="/" />
