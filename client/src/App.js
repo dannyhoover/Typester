@@ -1,14 +1,14 @@
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import { Redirect, Route, Switch, NavLink } from "react-router-dom";
 // import for Login
 
-import {UserContext} from "./contexts";
+import { UserContext } from "./contexts";
 
 import Header from "./components/Header";
 
-import {IndexPage, TestPage} from "./pages";
+import { IndexPage, TestPage } from "./pages";
 
-import Chart from "./components/Chart"
+import Chart from "./components/Chart";
 
 import API from "./util/API";
 
@@ -24,9 +24,11 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <UserContext.Provider value={{user}}>
+    <UserContext.Provider value={{ user }}>
       <Header>
-        <NavLink className="nav-link" to="/chart" exact>Chart</NavLink>
+        <NavLink className="nav-link chart" variant="light" to="/chart" exact>
+          Chart
+        </NavLink>
       </Header>
       <div className="container mt-5">
         <Switch>
