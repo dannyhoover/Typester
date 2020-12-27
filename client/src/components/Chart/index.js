@@ -7,7 +7,7 @@ function Chart(props) {
   return (
     <div>
       <div className="head-gradient"></div>
-      <div className="chart">
+      <div className="popout">
         {props.data.chartData != undefined ? (
           <Line
             data={props.data.chartData}

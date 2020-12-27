@@ -56,7 +56,7 @@ const TestPage = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container popout">
         <div className="head-gradient"></div>
         <div className="heading">Simple Speed Typing</div>
         <div className="header bordered">
@@ -74,7 +74,7 @@ const TestPage = () => {
           </div>
         </div>
         <div className="quote">Click start to begin the test.</div>
-        <button className="start-btn" onClick={startClickHandler}>
+        <button className="start-btn" id="startbtn" onClick={startClickHandler}>
           Start
         </button>
         <div className="timer">

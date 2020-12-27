@@ -4,8 +4,8 @@ import SignupPage from "../SignupPage";
 
 const Header = ({ children }) => (
   <header>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg">
+      <Link className="navbar-brand" to="/" id="typecolor">
         Typster
       </Link>
 

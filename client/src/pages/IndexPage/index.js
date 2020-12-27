@@ -12,7 +12,7 @@ const IndexPage = () => {
           {
             label: "Words per Minute",
             data: [23, 24, 25, 50, 45],
-            backgroundColor: "rgba(255, 0, 0, 0.2)",
+            backgroundColor: "rgba(0, 255,0 , 0.3)",
           },
         ],
       },

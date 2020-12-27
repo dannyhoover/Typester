@@ -36,7 +36,7 @@ const LoginLogoutButton = () => {
         <Button
           variant="light"
           onClick={() => setShowModal(true)}
-          className="button"
+          className="button btnbackground"
         >
           Signup
         </Button>
