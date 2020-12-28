@@ -44,10 +44,11 @@ const TestPage = () => {
 
     function myCallback() {
       setTimer((state) => {
-        if (state <= 1) {
+        if (state < 1) {
           clearInterval(intervalID);
           setIsGameStarted(false);
           setTimer(34);
+          window.location.reload();
         }
         return state - 1;
       });
