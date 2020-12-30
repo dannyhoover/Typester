@@ -12,22 +12,17 @@ const LoginLogoutButton = () => {
 
   const { user } = useContext(UserContext);
 
-  useEffect(() => {
-    if (!showModal) {
-      setEmail(() => "");
-      setPassword(() => "");
-    }
-  }, [showModal]);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/user/register/", {
+      .post("http://localhost:3001/api/user/login/", {
         email: email,
-        password: password,
+        password: password
       })
       .then((response) => {
         console.log(response.data);
+        setEmail("");
+        setPassword("");
       });
   };
   if (user == null)
@@ -64,12 +59,11 @@ const LoginLogoutButton = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-          </form>
-          <Modal.Footer>
-            <Button variant="light" onClick={() => setShowModal(false)}>
+
+            <Button variant="light" type="submit" onClick={() => setShowModal(false)}>
               Login
             </Button>
-          </Modal.Footer>
+          </form>
         </Modal>
       </>
     );
