@@ -1,5 +1,6 @@
 import { text } from "body-parser";
 import React, { useState, useRef } from "react";
+import API from "../../util/API";
 
 const TestPage = () => {
   const [timer, setTimer] = useState(34);
@@ -24,6 +25,16 @@ const TestPage = () => {
   var snipArray = [snippet1, snippet2, snippet3, snippet4, snippet5];
   var choice = snipArray[Math.floor(Math.random() * snipArray.length)];
 
+  function saveStats() {
+    API.Stats.saveStats({
+      wpm: WPM,
+      mistakes: mistakeCount,
+      accuracy: accuracy,
+    }).then(function (res) {
+      console.log(res);
+    });
+  }
+
   function onChangeHandler(event) {
     console.log(event.target.value);
     if (textSnippet.startsWith(event.target.value)) {
@@ -40,9 +51,9 @@ const TestPage = () => {
   function startClickHandler() {
     setIsGameStarted(true);
     setTextSnippet(choice);
-    var intervalID = window.setInterval(myCallback, 1000);
+    var intervalID = window.setInterval(everySecond, 1000);
 
-    function myCallback() {
+    function everySecond() {
       setTimer((state) => {
         if (state <= 1) {
           clearInterval(intervalID);
@@ -77,6 +88,7 @@ const TestPage = () => {
         <button className="start-btn" id="startbtn" onClick={startClickHandler}>
           Start
         </button>
+        <button onClick={saveStats}>Save</button>
         <div className="timer">
           <div className="header_text">Time</div>
           <div className="curr_time">{timer}s</div>

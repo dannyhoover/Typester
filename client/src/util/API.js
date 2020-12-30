@@ -5,8 +5,14 @@ const API = {
     getAll() {
       return axios.get("/api/excerpts");
     },
-    create(book) {},
-    delete(bookId) {},
+  },
+  Stats: {
+    getAll() {
+      return axios.get("/api/stats");
+    },
+    saveStats(stats) {
+      return axios.post("/api/stats", stats);
+    },
   },
 };
 

@@ -17,7 +17,7 @@ const LoginLogoutButton = () => {
     axios
       .post("http://localhost:3001/api/user/login/", {
         email: email,
-        password: password
+        password: password,
       })
       .then((response) => {
         console.log(response.data);
@@ -53,14 +53,18 @@ const LoginLogoutButton = () => {
             <label>
               Password:
               <input
-                type="text"
+                type="password"
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
 
-            <Button variant="light" type="submit" onClick={() => setShowModal(false)}>
+            <Button
+              variant="light"
+              type="submit"
+              onClick={() => setShowModal(false)}
+            >
               Login
             </Button>
           </form>
