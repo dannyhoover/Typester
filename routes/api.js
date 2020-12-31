@@ -38,6 +38,10 @@ router.post("/user/register/", (req, res) => {
   });
 });
 
+router.get("/user", (req, res) => {
+  return res.json(req.user);
+});
+
 router.get("/excerpts", (req, res) => {
   db.Excerpt.find()
     .then((results) => {
