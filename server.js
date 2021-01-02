@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use(serveStatic("Develop/public"));
 
-app.use(apiRouter);
+app.use("/api", apiRouter);
 
 passport.use(
   new LocalStrategy(function (email, password, done) {
