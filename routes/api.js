@@ -26,7 +26,7 @@ router.post("/user/register/", (req, res) => {
       console.log("User already exists!");
     } else {
       bcrypt.hash(req.body.password, 10, (err, hash) => {
-        User.create({
+        db.User.create({
           email: req.body.email,
           password: hash,
         }).then(() => {
@@ -38,8 +38,34 @@ router.post("/user/register/", (req, res) => {
   });
 });
 
-router.get("/api/excerpts", (req, res) => {
+router.get("/user", (req, res) => {
+  return res.json(req.user);
+});
+
+router.get("/excerpts", (req, res) => {
   db.Excerpt.find()
+    .then((results) => {
+      res.json(results);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({});
+    });
+});
+
+router.post("/stats", (req, res) => {
+  db.Stats.create(req.body)
+    .then((results) => {
+      res.json(results);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({});
+    });
+});
+
+router.get("/stats", (req, res) => {
+  db.Stats.find()
     .then((results) => {
       res.json(results);
     })

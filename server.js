@@ -10,6 +10,7 @@ const bcrypt = require("bcrypt");
 const User = require("./models/User");
 const apiRouter = require("./routes/api");
 const app = express();
+const cors = require("cors");
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/typester", {
@@ -22,6 +23,8 @@ mongoose
     console.error(err);
   });
 
+
+app.use(cors());
 app.use(logger("dev"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
