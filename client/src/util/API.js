@@ -14,6 +14,14 @@ const API = {
       return axios.post("/api/stats", stats);
     },
   },
+  User: {
+    register(userDetails) {
+      return axios.post("/api/user/register", userDetails);
+    },
+    login(userDetails) {
+      return axios.post("/api/user/login", userDetails);
+    }
+  }
 };
 
 export default API;
