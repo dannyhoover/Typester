@@ -14,6 +14,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "react-scripts": "^4.0.1",
     "serve-static": "^1.14.1"
   },
   "devDependencies": {
@@ -27,7 +28,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
     "heroku-postbuild": "npm run build",
     "seed": "node seeders/seed"
   }
