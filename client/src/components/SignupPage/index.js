@@ -4,8 +4,9 @@ import { Button, Modal } from "react-bootstrap";
 import { UserContext } from "../../contexts";
 import { Link, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
+import API from "../../util/API";
 
-const LoginLogoutButton = () => {
+const RegisterModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,15 +15,12 @@ const LoginLogoutButton = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3001/api/user/register/", {
-        email: email,
-        password: password
-      })
-      .then((response) => {
-        console.log(response.data);
-        setEmail("");
-        setPassword("");
-      });
+    API.User.register({email: email, password: password})
+        .then(response => {
+          console.log(response.data);
+          setEmail("");
+          setPassword("");
+        });
   };
   if (user == null)
     return (
@@ -80,4 +78,4 @@ const LoginLogoutButton = () => {
     );
 };
 
-export default LoginLogoutButton;
+export default RegisterModal;
