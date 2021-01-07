@@ -5,14 +5,13 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const bcrypt = require("bcrypt");
 const User = require("./models/User");
 const apiRouter = require("./routes/api");
 const app = express();
 const cors = require("cors");
 const session = require("express-session");
-
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/typester", {
@@ -25,7 +24,6 @@ mongoose
     console.error(err);
   });
 
-
 app.use(cors());
 app.use(logger("dev"));
 
@@ -34,20 +32,18 @@ app.use(bodyParser.json());
 
 app.use(serveStatic("Develop/public"));
 
-app.use(session({
+app.use(
+  session({
     secret: "ourSecret",
     resave: false,
-    saveUninitialized: true
-}));
+    saveUninitialized: true,
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.use("/api", apiRouter);
-
-
-
 
 // passport.use(
 //   new LocalStrategy(function (email, password, done) {
