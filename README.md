@@ -7,6 +7,8 @@
 Typing website where the user can improve their typing skills
 
 
+![](img/typster.gif)
+
 ## Table of Contents
 
 * [License](#license)
