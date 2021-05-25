@@ -1,11 +1,9 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { UserContext } from "../../contexts";
-import { Link, Route, Switch } from "react-router-dom";
-import ReactDOM from "react-dom";
+import API from "../../util/API";
 
-const LoginLogoutButton = () => {
+const LoginModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,27 +12,23 @@ const LoginLogoutButton = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:3001/api/user/login/", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response.data);
-        setEmail("");
-        setPassword("");
-      });
+
+    API.User.login({ email: email, password: password }).then((response) => {
+      console.log(response.data);
+      setEmail("");
+      setPassword("");
+    });
   };
   if (user == null)
     return (
       <>
-        {/* <Button
+        <Button
           variant="light"
           onClick={() => setShowModal(true)}
           className="button btnbackground"
         >
           Login
-        </Button> */}
+        </Button>
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
@@ -85,4 +79,4 @@ const LoginLogoutButton = () => {
     );
 };
 
-export default LoginLogoutButton;
+export default LoginModal;

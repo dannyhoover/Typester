@@ -2,7 +2,7 @@
   "name": "typester",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "0ld-proxy": "http://localhost/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -12,6 +12,7 @@
     "chart.js": "^2.9.4",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
+    "http-proxy-middleware": "^1.0.6",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-chartjs-2": "^2.11.1",
@@ -21,7 +22,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "SET PORT=5500 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

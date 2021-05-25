@@ -7,6 +7,7 @@ router.post("/user/login/", (req, res, next) => {
   db.User.findOne({ email: req.body.email }, (user, err) => {
     if (err) return console.log(err);
     bcrypt.compare(req.body.password, user.password, (result) => {
+      console.log("Got this far");
       if (result) {
         req.login(user, (err) => {
           console.log(err);
