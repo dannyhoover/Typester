@@ -28,13 +28,13 @@ const LoginLogoutButton = () => {
   if (user == null)
     return (
       <>
-        <Button
+        {/* <Button
           variant="light"
           onClick={() => setShowModal(true)}
           className="button btnbackground"
         >
           Login
-        </Button>
+        </Button> */}
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>

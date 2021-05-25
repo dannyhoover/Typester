@@ -14,9 +14,10 @@ const LoginLogoutButton = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3001/api/user/register/", {
+    axios
+      .post("http://localhost:3001/api/user/register/", {
         email: email,
-        password: password
+        password: password,
       })
       .then((response) => {
         console.log(response.data);
@@ -27,13 +28,13 @@ const LoginLogoutButton = () => {
   if (user == null)
     return (
       <>
-        <Button
+        {/* <Button
           variant="light"
           onClick={() => setShowModal(true)}
           className="button btnbackground"
         >
           Signup
-        </Button>
+        </Button> */}
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Signup</Modal.Title>
@@ -59,7 +60,11 @@ const LoginLogoutButton = () => {
               />
             </label>
 
-            <Button variant="light" type="submit" onClick={() => setShowModal(false)}>
+            <Button
+              variant="light"
+              type="submit"
+              onClick={() => setShowModal(false)}
+            >
               Signup
             </Button>
           </form>

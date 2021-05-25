@@ -163,6 +163,7 @@ body {
   padding: 10%;
   border-radius: 10%;
   transition-duration: 0.4s;
+  font-size: larger;
 }
 
 .chart:hover {
